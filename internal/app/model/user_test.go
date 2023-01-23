@@ -9,6 +9,6 @@ import (
 
 func TestUser_Validate(t *testing.T) {
 	u := model.TestUser(t)
-	assert.NoError(t, u.Validate())
+	assert.NoError(t, u.BeforeCreation())
 	assert.NotEmpty(t, u.EncryptedPassword)
 }

@@ -9,7 +9,7 @@ type User struct {
 	EncryptedPassword string
 }
 
-func (u *User) Validate() error {
+func (u *User) BeforeCreation() error {
 	if len(u.Password) > 0 {
 		enc, err := encryptString(u.Password)
 		if err != nil {

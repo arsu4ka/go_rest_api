@@ -7,7 +7,7 @@ type UserRepo struct {
 }
 
 func (r *UserRepo) Create(u *model.User) (*model.User, error) {
-	if err := u.Validate(); err != nil {
+	if err := u.BeforeCreation(); err != nil {
 		return nil, err
 	}
 
