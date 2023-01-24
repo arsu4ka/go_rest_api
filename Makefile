@@ -1,6 +1,10 @@
 .PHONY: build
 build:
-	go build -o bin/apiserver -v ./cmd/apiserver
+	go build -o bin/apiserver ./cmd/apiserver
+
+.PHONY: run
+run:
+	go run ./cmd/apiserver
 
 .PHONY: test
 test:
