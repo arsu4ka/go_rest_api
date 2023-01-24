@@ -16,20 +16,15 @@ func init() {
 	flag.StringVar(&configPath, "conf", "./configs/apiserver.toml", "path to config file")
 }
 
-func check(err error) {
-	if err != nil {
-		log.Fatal(err)
-	}
-}
-
 func main() {
 	flag.Parse()
 
 	config := apiserver.NewConfig()
-	_, err := toml.DecodeFile(configPath, config)
-	check(err)
+	if _, err := toml.DecodeFile(configPath, config); err != nil {
+		log.Fatal(err)
+	}
 
-	s := apiserver.New(config)
-	err = s.Start()
-	check(err)
+	if err := apiserver.Start(config); err != nil {
+		log.Fatal(err)
+	}
 }
