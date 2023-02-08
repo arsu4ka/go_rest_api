@@ -1,6 +1,6 @@
 package store
 
-import "github.com/arsu4ka/go_rest_api/internal/app/model"
+import "github.com/arsu4ka/go_rest_api/internal/model"
 
 type UserRepo interface {
 	Create(*model.User) error

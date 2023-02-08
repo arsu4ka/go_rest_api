@@ -8,8 +8,8 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"github.com/arsu4ka/go_rest_api/internal/app/model"
-	"github.com/arsu4ka/go_rest_api/internal/app/store/teststore"
+	"github.com/arsu4ka/go_rest_api/internal/model"
+	"github.com/arsu4ka/go_rest_api/internal/store/teststore"
 	"github.com/gorilla/securecookie"
 	"github.com/gorilla/sessions"
 	"github.com/stretchr/testify/assert"

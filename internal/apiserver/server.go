@@ -7,8 +7,8 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/arsu4ka/go_rest_api/internal/app/model"
-	"github.com/arsu4ka/go_rest_api/internal/app/store"
+	"github.com/arsu4ka/go_rest_api/internal/model"
+	"github.com/arsu4ka/go_rest_api/internal/store"
 	"github.com/google/uuid"
 	"github.com/gorilla/handlers"
 	"github.com/gorilla/mux"

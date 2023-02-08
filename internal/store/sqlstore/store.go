@@ -1,17 +1,25 @@
-package teststore
+package sqlstore
 
 import (
-	"github.com/arsu4ka/go_rest_api/internal/app/model"
-	"github.com/arsu4ka/go_rest_api/internal/app/store"
+	"database/sql"
+
+	"github.com/arsu4ka/go_rest_api/internal/store"
 	_ "github.com/lib/pq"
 )
 
 type Store struct {
+	db       *sql.DB
 	userRepo *UserRepo
 }
 
-func New() *Store {
-	return &Store{}
+func New(db *sql.DB) *Store {
+	return &Store{
+		db: db,
+	}
+}
+
+func (s *Store) Close() {
+	s.db.Close()
 }
 
 func (s *Store) User() store.UserRepo {
@@ -21,7 +29,6 @@ func (s *Store) User() store.UserRepo {
 
 	s.userRepo = &UserRepo{
 		store: s,
-		users: make(map[int]*model.User),
 	}
 
 	return s.userRepo
